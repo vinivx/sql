@@ -1,0 +1,75 @@
+create table filme (
+    cod_filme number(6) not null,
+    nome varchar2(80) not null,
+    duracao number(3) null,
+    classificacao number(2) not null,
+    ano number(4) null,
+    cod_diretor number(3) null,
+    nro_copias number(3) not null,
+    constraint pk_filme primary key (cod_filme)
+);
+
+create table diretor (
+    cod_diretor number(3) not null,
+    nome varchar2(50) not null,
+    constraint pk_diretor primary key (cod_diretor)
+);
+
+insert into diretor(cod_diretor, nome) values (1, 'Quentin Tarantino');
+insert into diretor(cod_diretor, nome) values (2, 'James Gunn');
+insert into diretor(cod_diretor, nome) values (3, 'Guilherme Del Toro');
+insert into diretor(cod_diretor, nome) values (4, 'José Padilla');
+insert into diretor(cod_diretor, nome) values (5, 'Steven Spielberg');
+insert into diretor(cod_diretor, nome) values (6, 'Winston Duke');
+insert into diretor(cod_diretor, nome) values (7, 'Jaume Collet-Serra');
+insert into diretor(cod_diretor, nome) values (8, 'Chris Columbus');
+insert into diretor(cod_diretor, nome) values (9, 'William Brent Bell');
+insert into diretor(cod_diretor, nome) values (10, 'Chad Stahelski');
+
+select * from diretor;
+
+select nome from diretor;
+
+select cod_diretor, nome from diretor;
+
+select cod_diretor as "Código do Diretor", nome as "Nome" from diretor;
+
+select cod_diretor as codigo, nome as diretor from diretor;
+
+select nome, cod_diretor from diretor;
+
+select nome, cod_diretor from diretor order by cod_diretor;
+
+select * from diretor order by nome
+
+select * from diretor where cod_diretor = 2;
+
+select nome from diretor where cod_diretor = 2;
+
+select cod_diretor as codigo from diretor  where none = 'James Gunn';
+
+select * from diretor where nome like 'James%';
+
+select * from diretor where nome like '%Toro';
+
+select * from diretor where nome like '%Toro%';
+
+select * from diretor where nome like '%a%';
+
+select * from diretor where cod_diretor = 2;
+
+select * from diretor where cod_diretor != 2;
+
+select * from diretor where cod_diretor <> 2;
+
+select * from diretor where cod_diretor > 2;
+
+select * from diretor where cod_diretor <= 2;
+
+select * from diretor 
+    where cod_diretor > 2 and cod_diretor != 5 
+    order by cod_diretor;
+
+select * from diretor
+	where cod_diretor >= 5 or cod_diretor = 1
+	order by cod_diretor;
